@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin | GERKATIN Kota Serang</title>
+  <link rel="icon" href="../assets/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #08B3D6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      background: #08B3D6;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .galeri-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+         gap: 15px;
+        margin-top: 20px;
+    }
+
+    .galeri-grid img {
+        width: 100%;
+         height: auto;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .galeri-grid img:hover {
+        transform: scale(1.05);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      background-color: #E4A951;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #FFF112;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <img src="../images/logo.jpg" alt="Logo GERKATIN" class="logo">
+      <h1 class="title">Dashboard Admin GERKATIN</h1>
+      <img src="../images/jajang.jpeg" alt="Header" class="foto-header">
+    </div>
+  </header>
+  <main>
+    <a href="edit-dashboard.html" class="back-button">← Kembali ke Dashboard</a>
+    <button id="btnTambahGambar" style="margin-bottom: 20px;">+ Tambah Gambar</button>
+    <section class="galeri-section">
+    <h2>Galeri Kegiatan DPC GERKATIN Kota Serang</h2>
+    <div class="galeri-grid">
+      <img src="../images/G1.jpg" alt="Kegiatan 1">
+      <img src="../images/G2.jpg" alt="Kegiatan 2">
+      <img src="../images/G3.jpg" alt="Kegiatan 3">
+      <img src="../images/G4.jpg" alt="Kegiatan 4">
+      <img src="../images/G5.jpg" alt="Kegiatan 5">
+      <img src="../images/G6.jpg" alt="Kegiatan 6">
+      <img src="../images/G7.jpg" alt="Kegiatan 7">
+      <img src="../images/G8.jpg" alt="Kegiatan 8">
+      <img src="../images/G9.jpg" alt="Kegiatan 9">
+      <img src="../images/G10.jpg" alt="Kegiatan 10">
+      <img src="../images/G11.jpg" alt="Kegiatan 11">
+      <img src="../images/G12.jpg" alt="Kegiatan 12">
+      <img src="../images/G13.jpg" alt="Kegiatan 13">
+      <img src="../images/G14.jpg" alt="Kegiatan 14">
+      <img src="../images/G15.jpg" alt="Kegiatan 15">
+    </div>
+  </section>
+  </main>
+  <script>
+  document.querySelectorAll('.galeri-grid img').forEach(img => {
+    img.addEventListener('click', function () {
+      const wrapper = document.createElement('div');
+      wrapper.id = 'popupForm';
+      wrapper.style.position = 'fixed';
+      wrapper.style.top = '0';
+      wrapper.style.left = '0';
+      wrapper.style.width = '100vw';
+      wrapper.style.height = '100vh';
+      wrapper.style.backgroundColor = 'rgba(0,0,0,0.6)';
+      wrapper.style.display = 'flex';
+      wrapper.style.justifyContent = 'center';
+      wrapper.style.alignItems = 'center';
+      wrapper.style.zIndex = '9999';
+
+      const formHtml = `
+        <div style="background:white; padding:20px; border-radius:10px; width:300px;">
+          <h3>Edit Gambar</h3>
+          <label>Ganti Gambar:</label>
+          <input type="file" id="gantiGambar" accept="image/*"><br/>
+          <button id="btnSimpan">Simpan</button>
+          <button id="btnHapus" style="background-color:#e74c3c; margin-left:10px;">Hapus</button>
+          <button id="btnBatal" style="margin-left:10px;">Batal</button>
+        </div>
+      `;
+
+      wrapper.innerHTML = formHtml;
+      document.body.appendChild(wrapper);
+
+      // Batal
+      document.getElementById('btnBatal').addEventListener('click', function () {
+        document.body.removeChild(wrapper);
+      });
+
+      // Simpan (ganti gambar)
+      document.getElementById('btnSimpan').addEventListener('click', function () {
+        const newImg = document.getElementById('gantiGambar').files[0];
+        if (newImg && newImg.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            img.src = e.target.result;
+            alert("Gambar berhasil diganti.");
+          };
+          reader.readAsDataURL(newImg);
+        }
+        document.body.removeChild(wrapper);
+      });
+
+      // Hapus gambar
+      document.getElementById('btnHapus').addEventListener('click', function () {
+        if (confirm("Yakin ingin menghapus gambar ini?")) {
+          img.remove();
+          document.body.removeChild(wrapper);
+        }
+      });
+    });
+  });
+  function tambahInteraksi(img) {
+    img.addEventListener('click', function () {
+      const wrapper = document.createElement('div');
+      wrapper.id = 'popupForm';
+      wrapper.style.position = 'fixed';
+      wrapper.style.top = '0';
+      wrapper.style.left = '0';
+      wrapper.style.width = '100vw';
+      wrapper.style.height = '100vh';
+      wrapper.style.backgroundColor = 'rgba(0,0,0,0.6)';
+      wrapper.style.display = 'flex';
+      wrapper.style.justifyContent = 'center';
+      wrapper.style.alignItems = 'center';
+      wrapper.style.zIndex = '9999';
+
+      const formHtml = `
+        <div style="background:white; padding:20px; border-radius:10px; width:300px;">
+          <h3>Edit Gambar</h3>
+          <label>Ganti Gambar:</label>
+          <input type="file" id="gantiGambar" accept="image/*"><br/>
+          <button id="btnSimpan">Simpan</button>
+          <button id="btnHapus" style="background-color:#e74c3c; margin-left:10px;">Hapus</button>
+          <button id="btnBatal" style="margin-left:10px;">Batal</button>
+        </div>
+      `;
+
+      wrapper.innerHTML = formHtml;
+      document.body.appendChild(wrapper);
+
+      document.getElementById('btnBatal').addEventListener('click', function () {
+        document.body.removeChild(wrapper);
+      });
+
+      document.getElementById('btnSimpan').addEventListener('click', function () {
+        const newImg = document.getElementById('gantiGambar').files[0];
+        if (newImg && newImg.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            img.src = e.target.result;
+            alert("Gambar berhasil diganti.");
+          };
+          reader.readAsDataURL(newImg);
+        }
+        document.body.removeChild(wrapper);
+      });
+
+      document.getElementById('btnHapus').addEventListener('click', function () {
+        if (confirm("Yakin ingin menghapus gambar ini?")) {
+          img.remove();
+          document.body.removeChild(wrapper);
+        }
+      });
+    });
+  }
+
+  // Inisialisasi gambar yang sudah ada
+  document.querySelectorAll('.galeri-grid img').forEach(img => {
+    tambahInteraksi(img);
+  });
+
+  // Tambah Gambar Baru
+  document.getElementById('btnTambahGambar').addEventListener('click', function () {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.click();
+
+    input.onchange = function () {
+      const file = input.files[0];
+      if (file && file.type.startsWith('image/')) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          const newImg = document.createElement('img');
+          newImg.src = e.target.result;
+          tambahInteraksi(newImg);
+          document.querySelector('.galeri-grid').appendChild(newImg);
+        };
+        reader.readAsDataURL(file);
+      }
+    };
+  });
+</script>
+</body>
+</html>

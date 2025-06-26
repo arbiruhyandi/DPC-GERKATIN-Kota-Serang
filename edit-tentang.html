@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin | GERKATIN Kota Serang</title>
+  <link rel="icon" href="../assets/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+   <div class="header-container">
+      <img src="../images/logo.jpg" alt="Logo GERKATIN" class="logo">
+      <h1 class="title">Dashboard Admin GERKATIN</h1>
+      <img src="../images/jajang.jpeg" alt="header" class="foto-header">
+    </div>
+</header>
+<!-- ... sebelumnya tetap sama sampai tag <main> -->
+<main>
+  <a href="edit-dashboard.html" class="back-button">← Kembali ke Dashboard</a>
+  
+  <h2>Edit Tentang</h2>
+
+<div class="container" style="text-align: center;">
+  <img src="../images/logo.jpg" alt="Logo GERKATIN" class="about-logo" style="max-width: 150px; border-radius: 8px;">
+  
+  <h2 style="color: white; margin-top: 20px;">Visi dan Misi GERKATIN Kota Serang</h2>
+
+  <form id="formVisiMisi">
+    <!-- Input untuk Visi -->
+    <div class="form-group">
+      <label for="visi" style="color: white;">Visi:</label>
+      <textarea id="visi" rows="4" placeholder="Tulis visi di sini...">Menciptakan dunia di mana semua individu Tuli memiliki akses penuh dan setara terhadap pendidikan, pekerjaan, dan kehidupan sosial. Kami bercita-cita mewujudkan masyarakat yang inklusif, menghargai keberagaman, dan menjadikan komunikasi bukan lagi penghalang.</textarea>
+    </div>
+
+    <!-- Input untuk Misi -->
+    <div class="form-group">
+      <label for="misi" style="color: white;">Misi:</label>
+      <textarea id="misi" rows="10" placeholder="Tulis misi di sini...">
+1. Mendorong akses pendidikan yang inklusif dan berkualitas bagi individu Tuli dengan menyediakan dukungan dan sumber daya yang dibutuhkan.
+2. Memfasilitasi pelatihan keterampilan serta peluang kerja guna mencapai kemandirian ekonomi.
+3. Memperjuangkan hak-hak individu Tuli dan meningkatkan kesadaran publik terhadap isu yang mereka hadapi.
+4. Membangun komunitas yang saling mendukung secara sosial dan emosional.
+5. Mengembangkan teknologi dan inovasi yang mendukung komunikasi dan aksesibilitas.
+6. Bekerja sama dengan para pemangku kepentingan untuk mewujudkan masyarakat yang inklusif dan adil.
+      </textarea>
+    </div>
+    <!-- Tombol Simpan -->
+    <button type="submit">Simpan Perubahan</button>
+  </form>
+
+  <!-- Bagian Gambar Bahasa Isyarat (editable) -->
+<h2 style="text-align: center; color: white; margin-top: 40px;">Gambar Bahasa Isyarat</h2>
+
+<form id="formIsyarat" style="text-align: center;">
+  <input type="file" accept="image/*" id="gambarIsyarat" />
+  <div id="previewIsyarat" style="margin-top: 20px;">
+    <img src="../images/isyarat.png" alt="Bahasa Isyarat" id="isyaratImg" style="max-width: 100%; max-height: 400px;">
+  </div>
+  <button type="submit" style="margin-top: 15px;">Simpan Gambar</button>
+</form>
+
+  <!-- Edit Jumlah Anggota -->
+  <h2>Edit Jumlah Anggota</h2>
+  <form id="formAnggota">
+    <div class="form-group">
+      <label for="jumlahLaki">Jumlah Laki-laki:</label>
+      <input type="number" id="jumlahLaki" value="25" min="0">
+    </div>
+    <div class="form-group">
+      <label for="jumlahPerempuan">Jumlah Perempuan:</label>
+      <input type="number" id="jumlahPerempuan" value="9" min="0">
+    </div>
+    <button type="submit">Simpan Jumlah</button>
+  </form>
+
+  <div class="gender-stats" style="margin-top: 20px;">
+    <div class="card">
+      <h3>Laki-laki</h3>
+      <p id="displayLaki">25</p>
+    </div>
+    <div class="card">
+      <h3>Perempuan</h3>
+      <p id="displayPerempuan">9</p>
+    </div>
+  </div>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #08B3D6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      background: #08B3D6;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .about-logo {
+    display: block;
+    margin: 0 auto;
+    width: 150px; /* Atur ukuran sesuai kebutuhan */
+    border-radius: 10px;
+    }
+
+    h1, h2 {
+      color: white;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 30px;
+      padding-bottom: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .btn-delete {
+      background-color: #e74c3c;
+      margin-top: 5px;
+    }
+
+    .btn-delete:hover {
+      background-color: #c0392b;
+    }
+
+    .preview img, .preview video {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .preview {
+      margin-top: 10px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      background-color: #E4A951;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #FFF112;
+    }
+
+  </style>
+</main>
+<script>
+    // Berubah ketik
+document.getElementById("formVisiMisi").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const visi = document.getElementById("visi").value;
+    const misi = document.getElementById("misi").value;
+
+    alert("Visi dan Misi berhasil disimpan (simulasi).");
+    // Di sini kamu bisa menambahkan logic untuk menyimpan ke database jika pakai backend.
+  });
+
+  //Ganti Gambar
+  document.getElementById("formIsyarat").addEventListener("submit", function(e) {
+    e.preventDefault();
+    alert("Gambar berhasil disimpan (simulasi).");
+    // Tambahkan logika penyimpanan ke server jika perlu
+  });
+
+  document.getElementById("gambarIsyarat").addEventListener("change", function() {
+    const file = this.files[0];
+    if (file && file.type.startsWith("image/")) {
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const img = document.getElementById("isyaratImg");
+        img.src = evt.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  // Menyimpan jumlah anggota
+  document.getElementById("formAnggota").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const laki = document.getElementById("jumlahLaki").value;
+    const perempuan = document.getElementById("jumlahPerempuan").value;
+
+    document.getElementById("displayLaki").textContent = laki;
+    document.getElementById("displayPerempuan").textContent = perempuan;
+
+    alert("Jumlah anggota berhasil diperbarui (simulasi).");
+  });
+</script>
+</body>
+</html>

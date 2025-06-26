@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard Admin | GERKATIN Kota Serang</title>
+  <link rel="icon" href="../assets/logo.jpg" type="image/jpg">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #08B3D6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      max-width: 800px;
+      margin: auto;
+      background: #08B3D6;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .about-logo {
+      display: block;
+      margin: 0 auto;
+      width: 150px;
+      border-radius: 10px;
+    }
+
+    h1, h2 {
+      color: white;
+      text-align: center;
+    }
+
+    h2 {
+      margin-top: 30px;
+      padding-bottom: 5px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+      color: white;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+
+    .btn-delete {
+      background-color: #e74c3c;
+      margin-top: 5px;
+    }
+
+    .btn-delete:hover {
+      background-color: #c0392b;
+    }
+
+    .preview img, .preview video {
+      max-width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .preview {
+      margin-top: 10px;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 16px;
+      background-color: #E4A951;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-button:hover {
+      background-color: #FFF112;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <img src="../images/logo.jpg" alt="Logo GERKATIN" class="logo">
+      <h1 class="title">Dashboard Admin GERKATIN</h1>
+      <img src="../images/jajang.jpeg" alt="Header" class="foto-header">
+    </div>
+  </header>
+  <main>
+    <a href="edit-dashboard.html" class="back-button">← Kembali ke Dashboard</a>
+    <section class="struktur-section">
+        <div id="formTambah" style="margin-top: 20px;">
+            <h3 style="color:white;">Tambah Pengurus Baru</h3>
+            <input type="text" id="newJabatan" placeholder="Jabatan" />
+            <input type="text" id="newNama" placeholder="Nama" />
+            <input type="file" id="newImage" accept="image/*" />
+            <button id="btnTambah">Simpan</button>
+        </div>
+        <button id="btnTambahForm" style="margin-top:20px;background:#2ecc71;color:white;padding:10px 16px;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">+ Tambah Pengurus</button>
+      <h2>Struktur Pengurus DPC GERKATIN Kota Serang</h2>
+      <div class="struktur-container">
+        <div class="struktur-item">
+          <img src="../images/jajang.jpeg" alt="Ketua" />
+          <h3>Ketua</h3>
+          <p>Jajang Qomaruzzaman</p>
+        </div>
+        <div class="struktur-item">
+          <img src="../images/profil.png" alt="Wakil Ketua" />
+          <h3>Wakil Ketua</h3>
+          <p>...</p>
+        </div>
+        <div class="struktur-item">
+          <img src="../images/profil.png" alt="Sekretaris" />
+          <h3>Sekretaris</h3>
+          <p>...</p>
+        </div>
+        <div class="struktur-item">
+          <img src="../images/profil.png" alt="Wakil Sekretaris" />
+          <h3>Wakil Sekretaris</h3>
+          <p>...</p>
+        </div>
+        <div class="struktur-item">
+          <img src="../images/profil.png" alt="Bendahara" />
+          <h3>Bendahara</h3>
+          <p>...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+  document.querySelectorAll('.struktur-item').forEach(item => {
+    // === JABATAN (H3) ===
+    const jabatanEl = item.querySelector('h3');
+    jabatanEl.addEventListener('click', function () {
+      const currentText = jabatanEl.textContent;
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = currentText;
+      input.style.width = '100%';
+      input.style.fontSize = '1.1em';
+      input.style.fontWeight = 'bold';
+
+      jabatanEl.replaceWith(input);
+      input.focus();
+
+      function save() {
+        const newH3 = document.createElement('h3');
+        newH3.textContent = input.value.trim() || currentText;
+        newH3.addEventListener('click', arguments.callee); // Supaya bisa klik lagi
+        input.replaceWith(newH3);
+      }
+
+      input.addEventListener('blur', save);
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') save();
+      });
+    });
+
+    // === NAMA (P) ===
+    const namaEl = item.querySelector('p');
+    namaEl.addEventListener('click', function () {
+      const currentText = namaEl.textContent;
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = currentText;
+      input.style.width = '100%';
+
+      namaEl.replaceWith(input);
+      input.focus();
+
+      function save() {
+        const newP = document.createElement('p');
+        newP.textContent = input.value.trim() || currentText;
+        newP.addEventListener('click', arguments.callee);
+        input.replaceWith(newP);
+      }
+
+      input.addEventListener('blur', save);
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') save();
+      });
+    });
+
+    // === IMAGE (IMG) ===
+    const imgEl = item.querySelector('img');
+    imgEl.style.cursor = 'pointer';
+    imgEl.title = 'Klik untuk ganti foto';
+    imgEl.addEventListener('click', function () {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.style.display = 'none';
+
+      input.addEventListener('change', function () {
+        const file = input.files[0];
+        if (file && file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imgEl.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.body.appendChild(input);
+      input.click();
+      document.body.removeChild(input);
+    });
+  });
+  const btnTambahForm = document.getElementById("btnTambahForm");
+  const formTambah = document.getElementById("formTambah");
+  const btnTambah = document.getElementById("btnTambah");
+  const container = document.querySelector(".struktur-container");
+
+  btnTambahForm.addEventListener("click", function () {
+    formTambah.style.display = formTambah.style.display === "none" ? "block" : "none";
+  });
+
+  btnTambah.addEventListener("click", function () {
+    const jabatan = document.getElementById("newJabatan").value.trim();
+    const nama = document.getElementById("newNama").value.trim();
+    const imageFile = document.getElementById("newImage").files[0];
+
+    if (!jabatan || !nama || !imageFile) {
+      alert("Lengkapi semua isian!");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const newItem = document.createElement("div");
+      newItem.className = "struktur-item";
+      newItem.innerHTML = `
+        <img src="${e.target.result}" alt="${jabatan}" />
+        <h3>${jabatan}</h3>
+        <p>${nama}</p>
+      `;
+      container.appendChild(newItem);
+
+      // Reset form
+      document.getElementById("newJabatan").value = "";
+      document.getElementById("newNama").value = "";
+      document.getElementById("newImage").value = "";
+      formTambah.style.display = "none";
+
+      // Reapply event handler supaya bisa diedit
+      applyEditHandlers(newItem);
+    };
+    reader.readAsDataURL(imageFile);
+  });
+
+  function applyEditHandlers(item) {
+    const jabatanEl = item.querySelector('h3');
+    const namaEl = item.querySelector('p');
+    const imgEl = item.querySelector('img');
+
+    jabatanEl.addEventListener('click', function () {
+      const current = jabatanEl.textContent;
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = current;
+      input.style.width = '100%';
+      input.style.fontSize = '1.1em';
+      input.style.fontWeight = 'bold';
+
+      jabatanEl.replaceWith(input);
+      input.focus();
+
+      function save() {
+        const newH3 = document.createElement('h3');
+        newH3.textContent = input.value.trim() || current;
+        applyEditHandlers(item); // Bind lagi
+        input.replaceWith(newH3);
+      }
+
+      input.addEventListener('blur', save);
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') save();
+      });
+    });
+
+    namaEl.addEventListener('click', function () {
+      const current = namaEl.textContent;
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.value = current;
+      input.style.width = '100%';
+
+      namaEl.replaceWith(input);
+      input.focus();
+
+      function save() {
+        const newP = document.createElement('p');
+        newP.textContent = input.value.trim() || current;
+        applyEditHandlers(item); // Bind lagi
+        input.replaceWith(newP);
+      }
+
+      input.addEventListener('blur', save);
+      input.addEventListener('keydown', e => {
+        if (e.key === 'Enter') save();
+      });
+    });
+
+    imgEl.style.cursor = 'pointer';
+    imgEl.title = 'Klik untuk ganti foto';
+    imgEl.addEventListener('click', function () {
+      const input = document.createElement('input');
+      input.type = 'file';
+      input.accept = 'image/*';
+      input.style.display = 'none';
+
+      input.addEventListener('change', function () {
+        const file = input.files[0];
+        if (file && file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            imgEl.src = e.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      document.body.appendChild(input);
+      input.click();
+      document.body.removeChild(input);
+    });
+  }
+
+  // Apply handler ke elemen awal
+  document.querySelectorAll('.struktur-item').forEach(applyEditHandlers)
+</script>
+</body>
+</html>

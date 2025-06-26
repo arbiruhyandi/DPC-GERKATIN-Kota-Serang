@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta name="description" content="Website resmi DPC GERKATIN Kota Serang, berisi informasi tentang kegiatan, struktur organisasi, dan galeri.">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="assets/logo.jpg" type="image/jpg">
+<title>DPC GERKATIN Kota Serang</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style-edit.css">
+</head>
+<body>
+<header class="site-header">
+   <div class="header-container">
+      <img src="images/logo.png" alt="Logo GERKATIN" class="logo">
+      <h1 class="title">DPC GERKATIN KOTA SERANG</h1>
+      <img src="images/jajang.jpeg" alt="header" class="foto-header">
+    </div>
+</header>
+<nav><ul>
+<li><a href="edit-index.html">Beranda</a></li>
+<li><a href="edit-tentang.html">Tentang</a></li>
+<li><a href="edit-struktur.html">Struktur</a></li>
+<li><a href="edit-galeri.html">Galeri</a></li>
+</ul></nav>
+<main>
+
+  <!-- === SLIDER === -->
+  <section class="slider-section">
+    <h2>Slider</h2>
+    <div class="slides">
+      <img src="images/1.png" alt="Slide 1">
+      <img src="images/2.png" alt="Slide 2">
+      <img src="images/3.png" alt="Slide 3">
+      <img src="images/4.png" alt="Slide 4">
+    </div>
+    <form action="proses/slider.php" method="POST" enctype="multipart/form-data">
+      <input type="file" name="gambar" required>
+      <button type="submit" name="tambah_slider">➕ Tambah </button>
+    </form>
+    <form id="hapusForm" action="proses/hapus-slider.php" method="POST">
+  <input type="hidden" name="gambar" id="gambarToDelete">
+  <button type="submit">❌ Hapus</button>
+</form>
+<form action="proses/simpan-slider.php" method="POST">
+  <button type="submit">💾 Simpan</button>
+</form>
+  </section>
+
+  <!-- === VIDEO === -->
+  <section class="video-section">
+    <h2>Video</h2>
+    <div class="video-wrapper">
+      <video controls width="100%">
+        <source src="videos/1.mp4" type="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+    </div>
+    <form action="proses/video.php" method="POST" enctype="multipart/form-data">
+      <input type="text" name="nama" placeholder="Nama Video" required>
+      <input type="file" name="video" required>
+      <button type="submit" name="tambah_video">➕ Tambah Video</button>
+    </form>
+  </section>
+
+  <!-- === BERITA === -->
+  </section>
+  <!-- BERITA -->
+  <section class="berita-terkini">
+    <h2>Berita Terkini</h2>
+    <div class="berita">
+
+      <!-- Berita 1 -->
+    <div class="berita-item">
+      <img src="images/b1.jpeg" alt="Berita 1">
+      <h3>Kegiatan Sosialisasi Bahasa Isyarat (BISINDO) di Alun-alun Kota Serang</h3>
+      <p class="berita-ringkas">
+        Serang, 2025 — Dalam upaya meningkatkan kesadaran dan inklusivitas masyarakat terhadap komunitas Tuli, DPC GERKATIN Kota Serang mengadakan kegiatan Sosialisasi Bahasa Isyarat Indonesia (BISINDO) secara gratis di Alun-alun, Minggu (9/6)...
+      </p>
+      <div class="berita-penuh hidden">
+        <p>
+          Acara ini diikuti oleh puluhan peserta dari berbagai usia, termasuk anak-anak, remaja, dan orang tua yang antusias belajar huruf-huruf dasar BISINDO melalui media poster edukatif. Para relawan GERKATIN membimbing secara langsung dengan metode interaktif dan santai.
+
+          “Kami ingin masyarakat bisa lebih memahami dan menghargai komunikasi visual yang digunakan teman-teman Tuli,” ujar salah satu panitia.
+
+          Selain pengenalan bahasa isyarat, kegiatan ini juga menjadi ruang interaksi antara komunitas Tuli dengan masyarakat umum, membangun rasa empati, dan mendekatkan berbagai kalangan dalam semangat inklusi sosial.
+
+          Kegiatan ini rencananya akan digelar secara rutin di ruang-ruang publik lainnya di Kota Serang.
+        </p>
+      </div>
+      <button class="toggle-berita-btn">Baca Selengkapnya</button>
+    </div>
+
+      <!-- Berita 2 -->
+    <div class="berita-item">
+      <img src="images/b2.jpeg" alt="Berita 2">
+      <h3>Pemberdayaan Ekonomi Anggota Tuli: Menjahit sebagai Keterampilan Mandiri</h3>
+      <p class="berita-ringkas">
+        Serang, 2025 — Salah satu anggota DPC GERKATIN Kota Serang menunjukkan kemandiriannya melalui keterampilan menjahit di rumah...
+      </p>
+      <div class="berita-penuh hidden">
+        <p>
+          Kegiatan ini menjadi bagian dari program pemberdayaan ekonomi komunitas Tuli yang digagas oleh organisasi untuk mendukung kemandirian finansial para anggotanya.
+
+          Dengan peralatan menjahit sederhana, anggota GERKATIN ini mampu menghasilkan produk-produk kreatif seperti pakaian rumah tangga, tas, hingga perlengkapan seragam. Kegiatan ini bukan hanya sebagai hobi, namun juga menjadi sumber penghasilan nyata.
+
+          “Saya senang bisa bekerja dari rumah dan punya penghasilan sendiri,” ucapnya melalui bahasa isyarat yang diterjemahkan oleh relawan.
+
+          Program ini diharapkan dapat menjadi inspirasi bagi anggota lain dan masyarakat luas bahwa keterbatasan pendengaran tidak menjadi hambatan untuk berkarya dan mandiri.
+
+          GERKATIN terus mendorong inisiatif serupa melalui pelatihan keterampilan dan pendampingan usaha kecil berbasis komunitas.
+        </p>
+      </div>
+      <button class="toggle-berita-btn">Baca Selengkapnya</button>
+    </div>
+
+      <!-- Berita 3 -->
+    <div class="berita-item">
+      <img src="images/b3.jpeg" alt="Berita 3">
+      <h3>GERKATIN Wilayah Banten Salurkan Bantuan Bencana Alam Bersama Sahabat Tuli</h3>
+      <p class="berita-ringkas">
+        Banten, 15 Desember 2024 — Keluarga besar GERKATIN Wilayah Banten yang terdiri dari DPC Kota Serang, Kabupaten Serang, Pandeglang, Lebak, dan Tangerang Selatan menyalurkan bantuan sosial kepada warga terdampak bencana alam...
+      </p>
+      <div class="berita-penuh hidden">
+        <p>
+        Kegiatan ini mendapat dukungan langsung dari komunitas Sahabat Tuli sebagai bentuk nyata kepedulian sosial lintas komunitas.
+
+        Dalam aksi bertajuk “Peduli Bantuan Bencana Alam”, para relawan GERKATIN menyerahkan paket sembako dan kebutuhan pokok kepada warga yang terdampak. Penyaluran dilakukan secara langsung ke lokasi terdampak di daerah pedesaan, diiringi dengan doa dan semangat kebersamaan.
+
+        “Kami percaya bahwa solidaritas dan kepedulian sosial harus menjadi bagian dari perjuangan komunitas Tuli. Kegiatan ini adalah wujud nyata bahwa kami bukan hanya memperjuangkan hak, tapi juga hadir untuk sesama,” ujar salah satu koordinator kegiatan.
+
+        Foto bersama dengan spanduk kegiatan menunjukkan kekompakan dan kebersamaan lintas DPC dalam aksi kemanusiaan ini. Kegiatan ini sekaligus menjadi ajang silaturahmi antaranggota GERKATIN dari berbagai kabupaten dan kota.
+        </p>
+      </div>
+      <button class="toggle-berita-btn">Baca Selengkapnya</button>
+    </div>
+
+      <!-- Berita 4 -->
+    <div class="berita-item">
+      <img src="images/b4.jpeg" alt="Berita 4">
+      <h3>Pelatihan Pendampingan Disabilitas</h3>
+      <p class="berita-ringkas">
+        Serang, 21 Juni 2025 — Sebuah kegiatan pelatihan pendampingan disabilitas telah sukses diselenggarakan di Aula UNTIRTA, dengan tujuan utama meningkatkan pemahaman dan kemampuan mahasiswa dalam mendampingi penyandang disabilitas...
+      </p>
+      <div class="berita-penuh hidden">
+        <p>
+       Acara ini dihadiri oleh puluhan peserta dari berbagai fakultas dan organisasi kemahasiswaan yang peduli terhadap isu disabilitas. Dalam kegiatan ini, para peserta mendapatkan materi tentang inklusi sosial, pendekatan komunikasi yang ramah disabilitas, serta praktik langsung dalam memberikan pendampingan yang empatik dan profesional.
+
+       Salah satu momen penting dalam kegiatan ini adalah pemberian sertifikat penghargaan kepada narasumber yang telah memberikan materi pelatihan dengan penuh dedikasi. Penyerahan sertifikat dilakukan oleh panitia pelaksana sebagai bentuk apresiasi atas kontribusi yang diberikan.
+
+       "Pelatihan ini membuka wawasan saya bahwa menjadi pendamping disabilitas bukan hanya soal membantu, tetapi juga tentang membangun kesetaraan dan menghargai keberagaman," ujar salah satu peserta pelatihan.
+
+       Kegiatan ini diharapkan menjadi langkah awal bagi mahasiswa untuk aktif dalam gerakan inklusi dan menjadi agen perubahan dalam menciptakan lingkungan yang lebih ramah disabilitas di kampus maupun masyarakat luas.
+        </p>
+      </div>
+      <button class="toggle-berita-btn">Baca Selengkapnya</button>
+    </div>
+    <form action="proses/berita.php" method="POST" enctype="multipart/form-data">
+      <input type="text" name="judul" placeholder="Judul" required>
+      <textarea name="ringkasan" placeholder="Ringkasan" required></textarea>
+      <textarea name="isi" placeholder="Isi Berita" required></textarea>
+      <input type="file" name="gambar" required>
+      <button type="submit" name="tambah_berita">➕ Tambah Berita</button>
+    </form>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-social">
+      <a href="https://wa.me/6289622486707" target="_blank">
+        <img src="images/whatsapp.png" alt="WhatsApp" class="social-icon">
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/gerkatin_kotaserang" target="_blank">
+        <img src="images/instagram.png" alt="Instagram" class="social-icon">
+        Instagram
+      </a>
+    </div>
+    <p style="text-align: center;">
+      &copy; 2025 DPC GERKATIN Kota Serang. Seluruh hak cipta dilindungi.
+    </p>
+  </div>
+</footer>
+<script src="js/berita.js"></script>
+<script src="js/video.js"></script>
+</body></html>
