@@ -1,0 +1,72 @@
+/* Container full height & flex tengah */
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/*Login styles*/
+.logo-profil-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10%;
+  margin-bottom: 20px;
+}
+
+.login-box {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-box input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+  background-color: #E4A951;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-box button:hover {
+  background-color: #FFF112;
+}
+
+/*Lupa kata sandi styles*/
+#lupaSandi {
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  color: #E4A951;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+#lupaSandi:hover {
+  color: #E4A951;
+  text-decoration: underline;
+}
+
+#lupaSandi:active {
+  color: #FFF112;
+}
