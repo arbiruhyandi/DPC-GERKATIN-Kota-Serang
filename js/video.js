@@ -1,7 +1,7 @@
 // Klik Video Javascript
   const videos = [
     { src: 'videos/1.mp4', caption: 'DIRGAHAYU DPC GERKATIN KOTA SERANG K-11' },
-    { src: 'videos/2.mp4', caption: 'Pelatihan Bahasa Isyarat' },
+    { src: 'videos/2.mp4', caption: 'Belajar Bahasa Isyarat BISINDO' },
     { src: 'videos/3.mp4', caption: 'Workshop Kewirausahaan' }
   ];
 
