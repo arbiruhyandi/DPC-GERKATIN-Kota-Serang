@@ -183,11 +183,19 @@ nav ul li a:hover {
   color: #333;
 }
 
+.video-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* pastikan caption di bawah video */
+}
+
 .video-display video {
   width: 100%;
   max-width: 280px; /* batas maksimal ukuran video */
   border-radius: 10px;
   height: auto;
+  display: block;
 }
 
 .video-caption {
