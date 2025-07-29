@@ -272,7 +272,7 @@ section.berita-terkini {
 .berita-item {
   background-color: #fff;
   border-radius: 12px;
-  max-width: 850px;
+  width: 850px;
   padding: 20px;
   text-align: left;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
