@@ -264,7 +264,6 @@ section.berita-terkini {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px; /* jarak antar berita */
-  max-width: 850px;
   margin: 0 auto;
 }
 
